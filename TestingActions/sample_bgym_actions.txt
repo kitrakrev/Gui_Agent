@@ -1,0 +1,68 @@
+# Sample BrowserGym Actions using bgym_utils functions
+# Format: action_type|parameters
+
+# Navigation
+goto|https://www.google.com
+wait|2
+
+# Search interaction (using bid selectors)
+# Note: In real usage, you would need to get the actual bid values from the page
+# These are examples - replace with actual bid values from your target page
+click|searchbox_bid
+fill|searchbox_bid|python playwright tutorial
+click|search_button_bid
+
+# Wait for results
+wait|3
+
+# Scroll actions
+scroll|0|500
+wait|1
+scroll|0|-200
+
+# Screenshot
+screenshot|google_search_results.png
+
+# Navigate to another site
+goto|https://www.wikipedia.org
+wait|2
+
+# Language selection (using bid)
+click|english_link_bid
+wait|2
+
+# Search on Wikipedia
+click|search_input_bid
+fill|search_input_bid|Python programming
+click|search_button_bid
+
+# Wait and take final screenshot
+wait|3
+screenshot|wikipedia_results.png
+
+# Test form interactions
+goto|https://httpbin.org/forms/post
+wait|2
+
+# Fill form (using bid selectors)
+fill|custname_bid|Test User
+fill|custtel_bid|555-1234
+fill|custemail_bid|test@example.com
+select_option|size_bid|large
+fill|comments_bid|This is a test comment
+
+# Take form screenshot
+screenshot|form_filled.png
+
+# Send a message
+send_msg|Form filling completed successfully!
+
+# Test keyboard actions
+goto|https://www.google.com
+wait|2
+click|searchbox_bid
+keyboard_type|Hello World
+wait|1
+keyboard_press|Enter
+wait|2
+screenshot|keyboard_test.png

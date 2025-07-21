@@ -1,0 +1,50 @@
+# Sample BrowserGym actions using bgym_utils functions
+# Format: action_name|param1|param2|...
+
+# Navigate to Google
+goto|https://www.google.com
+
+# Wait for page to load
+wait|5
+
+# Debug: Get all BIDs to see what's available
+get_bids
+
+# Find textarea elements specifically
+find_element|tag|textarea
+
+# Find clickable elements
+find_element|tag|button
+
+# Test if we can find the textarea BID directly
+test_bid|bgym_1a
+
+# Wait a moment
+wait|2
+
+# Fill the search box directly (textarea with BID bgym_1a)
+direct_fill|bgym_1a|BrowserGym automation test
+
+# Wait a moment
+wait|2
+
+# Press Enter to submit the search
+direct_press|bgym_1a|Enter
+
+# Wait for results
+wait|3
+
+# Take a screenshot
+screenshot|google_search_results.png
+
+
+
+
+
+
+fill('93', 'pikachu')
+click('241')
+go_back()
+noop(1000)
+# Send message
+send_msg|Successfully performed Google search with BrowserGym automation!

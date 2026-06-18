@@ -2,14 +2,18 @@
 
 
 
+import os
 import pandas as pd
 from datetime import datetime
 import json
 from pymongo import MongoClient
 from collections import defaultdict
 
-# Connect to MongoDB using the connection string
-connection_string = "mongodb+srv://admin_sid:MIDLNePLBWF584tJ@webcapstone.xgv73pn.mongodb.net/"
+# Connect to MongoDB using the connection string from the environment.
+# Set ATLAS_URI, e.g. mongodb+srv://<username>:<password>@<cluster-host>/
+connection_string = os.environ.get("ATLAS_URI")
+if not connection_string:
+    raise RuntimeError("ATLAS_URI environment variable is not set")
 client = MongoClient(connection_string)
 
 # Access the database and collection
